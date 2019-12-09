@@ -1,0 +1,4 @@
+bases:
+- "./base"
+resources:
+- "./base/flux-config.yaml"
