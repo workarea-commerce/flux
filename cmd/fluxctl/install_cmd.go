@@ -78,7 +78,7 @@ func (opts *installOpts) RunE(cmd *cobra.Command, args []string) error {
 	if opts.configFile != "" {
 		viper.SetConfigFile(opts.configFile)
 		if err := viper.ReadInConfig(); err != nil {
-			return err
+			return fmt.Errorf("unable to read config at %s (possibly a missing file extension, try .yaml or .json): %s", opts.configFile, err)
 		}
 	}
 	viper.BindPFlags(cmd.Flags())
